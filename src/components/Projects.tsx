@@ -67,10 +67,6 @@ export default function Projects() {
         <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
           Selected work
         </h2>
-        <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
-          Six slots, waiting for real projects. Each one is filled from
-          src/data/content.ts.
-        </p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
             <ProjectCard key={i} project={project} />

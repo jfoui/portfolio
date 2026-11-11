@@ -93,9 +93,10 @@ export type Project = {
   placeholder: boolean;
 };
 
-// Three real project cards (Olist pipeline, medallion architecture, NYC
-// Taxi ETL). The other three stay placeholders until the user says
-// otherwise. Olist link stays empty until the user sends the repo link.
+// Five real project cards (Olist pipeline, medallion architecture, NYC
+// Taxi ETL, term deposit, disaster classification). The last one stays a
+// placeholder until the user says otherwise. Olist link stays empty until
+// the user sends the repo link.
 export const projects: Project[] = [
   {
     title: "Olist E-Commerce Pipeline with Airflow, Postgres and Metabase",
@@ -122,18 +123,20 @@ export const projects: Project[] = [
     placeholder: false,
   },
   {
-    title: "Project title",
-    description: "Short description: what it does, who it helps, and what you built.",
-    tags: ["Add tech tags"],
-    link: "",
-    placeholder: true,
+    title: "Term Deposit Subscription Prediction",
+    description:
+      "Machine learning model that predicts whether a client will subscribe to a term deposit from the UCI Bank Marketing dataset, with class imbalance handled through SMOTE. Final model Random Forest reaches F1 0.5201 and AUC 0.7531 on the test set.",
+    tags: ["Python", "scikit-learn", "Random Forest", "SMOTE"],
+    link: "https://github.com/Jereldavin/Term-Deposit-Subscription-Prediction",
+    placeholder: false,
   },
   {
-    title: "Project title",
-    description: "Short description: what it does, who it helps, and what you built.",
-    tags: ["Add tech tags"],
-    link: "",
-    placeholder: true,
+    title: "Disaster Image Classification",
+    description:
+      "Convolutional neural network that classifies disaster images into earthquake, landslide, urban fire, and water disaster, with MobileNetV2 transfer learning reaching 0.88 test accuracy.",
+    tags: ["Python", "TensorFlow", "CNN", "Transfer Learning"],
+    link: "https://github.com/Jereldavin/Disaster-Classification",
+    placeholder: false,
   },
   {
     title: "Project title",
