@@ -93,9 +93,9 @@ export type Project = {
   placeholder: boolean;
 };
 
-// Two real project cards (Olist pipeline + medallion architecture). The
-// other four stay placeholders until the user says otherwise. Olist link
-// stays empty until the user sends the repo link.
+// Three real project cards (Olist pipeline, medallion architecture, NYC
+// Taxi ETL). The other three stay placeholders until the user says
+// otherwise. Olist link stays empty until the user sends the repo link.
 export const projects: Project[] = [
   {
     title: "Olist E-Commerce Pipeline with Airflow, Postgres and Metabase",
@@ -114,11 +114,12 @@ export const projects: Project[] = [
     placeholder: false,
   },
   {
-    title: "Project title",
-    description: "Short description: what it does, who it helps, and what you built.",
-    tags: ["Add tech tags"],
-    link: "",
-    placeholder: true,
+    title: "NYC Taxi ETL with Airflow",
+    description:
+      "ETL pipeline for New York City Yellow Taxi trip records into PostgreSQL, orchestrated with Airflow 3 TaskFlow API inside Docker, using XCom for inter-task metadata and Pandas for transformation.",
+    tags: ["Apache Airflow", "PostgreSQL", "Docker", "Pandas"],
+    link: "https://github.com/Jereldavin/NYC-ETL-Airflow",
+    placeholder: false,
   },
   {
     title: "Project title",
