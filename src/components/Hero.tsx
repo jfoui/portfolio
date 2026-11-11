@@ -48,6 +48,15 @@ export default function Hero() {
             >
               GitHub →
             </a>
+            <a
+              href={profile.cv}
+              target="_blank"
+              rel="noreferrer"
+              download
+              className="btn rounded-md border border-line bg-surface px-5 py-3 text-sm font-medium hover:border-ink"
+            >
+              Download CV ↓
+            </a>
           </div>
         </div>
 

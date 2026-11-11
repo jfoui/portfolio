@@ -31,6 +31,9 @@ export const profile = {
   photo: "",
   initials: "JI",
   location: "Jakarta, Indonesia",
+  // Public link to the CV PDF (Muse file storage — the link expires, so
+  // re-upload the file and update this URL when it lapses).
+  cv: "https://muse.ai/files/1324075710795009/1648607587310030/m8ti7pf0p4mpcj2nzzxncqib/Jereldavin_Igvander_CV.pdf",
 };
 
 export const about = {
