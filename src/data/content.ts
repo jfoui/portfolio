@@ -1,0 +1,193 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// THE ONE FILE TO EDIT
+// ─────────────────────────────────────────────────────────────────────────────
+// Everything on the site — text, skills, projects, education, contact links —
+// lives in this file. Edit it, save, and the site updates. No other file
+// needs to change to add a project, a photo, or a description.
+//
+// HOW TO ADD YOUR PHOTO
+//   1. Put your photo in the `public/` folder, e.g. `public/photo.jpg`.
+//   2. Set `photo: "/photo.jpg"` below.
+//   Until then the site shows your initials ("JI") in a monogram frame.
+//
+// HOW TO ADD A PROJECT
+//   Copy one of the placeholder objects in `projects` below, fill in its
+//   title, description, tags and link, and delete the placeholder ones.
+//
+// HOW TO CHANGE ANY TEXT
+//   Edit the strings in this file. Keep them short and plain — one idea
+//   per line — and the design still holds.
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const profile = {
+  name: "Jereldavin Igvander",
+  // Shown under the name in the hero.
+  role: "Data & AI",
+  // One line. Say what you do and who it is for.
+  tagline:
+    "Data Science student working across data engineering, analytics, and AI, turning raw data into pipelines, analyses, and models people can use.",
+  // Leave empty ("") to keep the initials monogram.
+  // Set to "/photo.jpg" (or your file name) after adding the photo to public/.
+  photo: "",
+  initials: "JI",
+  location: "Jakarta, Indonesia",
+};
+
+export const about = {
+  heading: "About",
+  // Short, plain paragraphs. Replace these with your own story.
+  paragraphs: [
+    "I'm a Data Science student at Binus University, working across data engineering, analytics, and AI. I like turning raw data into something people can use: a pipeline, an analysis, or a model.",
+    "Right now I'm building foundations in data engineering and machine learning, and learning to build AI (LLMs and RAG) on top of them.",
+  ],
+  // A small diagram of a typical pipeline. Labels only — edit the words here.
+  pipeline: ["Sources", "Ingest", "Transform", "Analyze", "Serve"],
+};
+
+export type SkillGroup = {
+  title: string;
+  note?: string;
+  skills: { name: string; learning?: boolean }[];
+};
+
+export const skillGroups: SkillGroup[] = [
+  {
+    title: "Data Engineering",
+    skills: [
+      { name: "Python" },
+      { name: "SQL" },
+      { name: "Apache Airflow" },
+      { name: "Apache Kafka" },
+      { name: "dbt" },
+      { name: "Apache Spark" },
+      { name: "ETL & Data Pipelines" },
+      { name: "PostgreSQL" },
+    ],
+  },
+  {
+    title: "Data Science & Analytics",
+    skills: [
+      { name: "Machine Learning" },
+      { name: "Data Analysis" },
+      { name: "Data Visualization" },
+    ],
+  },
+  {
+    title: "AI",
+    note: "Learning",
+    skills: [{ name: "LLMs", learning: true }, { name: "RAG", learning: true }],
+  },
+  {
+    title: "Tools",
+    skills: [{ name: "Docker" }, { name: "Git" }],
+  },
+];
+
+export type Project = {
+  title: string;
+  description: string;
+  tags: string[];
+  // A link to the repo or a live demo. Leave empty ("") for placeholders.
+  link: string;
+  // Set to false once the project is real.
+  placeholder: boolean;
+};
+
+// Two real project cards (Olist pipeline + medallion architecture). The
+// other four stay placeholders until the user says otherwise. Olist link
+// stays empty until the user sends the repo link.
+export const projects: Project[] = [
+  {
+    title: "Olist E-Commerce Pipeline with Airflow, Postgres and Metabase",
+    description:
+      "Daily Airflow pipeline on real Brazilian e-commerce data: raw CSVs land in bronze, cleaned tables in silver, daily revenue and delivery performance in gold, with failing quality checks and a Metabase dashboard on top.",
+    tags: ["Apache Airflow", "PostgreSQL", "Docker", "Metabase"],
+    link: "",
+    placeholder: false,
+  },
+  {
+    title: "Airflow E-Commerce Medallion Architecture",
+    description:
+      "Three-layer medallion design for e-commerce analytics: bronze keeps raw CSVs untouched, silver holds cleaned and typed tables, gold serves daily revenue and delivery performance, with quality checks gating every layer.",
+    tags: ["Apache Airflow", "PostgreSQL", "Medallion Architecture"],
+    link: "",
+    placeholder: false,
+  },
+  {
+    title: "Project title",
+    description: "Short description: what it does, who it helps, and what you built.",
+    tags: ["Add tech tags"],
+    link: "",
+    placeholder: true,
+  },
+  {
+    title: "Project title",
+    description: "Short description: what it does, who it helps, and what you built.",
+    tags: ["Add tech tags"],
+    link: "",
+    placeholder: true,
+  },
+  {
+    title: "Project title",
+    description: "Short description: what it does, who it helps, and what you built.",
+    tags: ["Add tech tags"],
+    link: "",
+    placeholder: true,
+  },
+  {
+    title: "Project title",
+    description: "Short description: what it does, who it helps, and what you built.",
+    tags: ["Add tech tags"],
+    link: "",
+    placeholder: true,
+  },
+];
+
+export type TimelineEntry = {
+  period: string;
+  title: string;
+  place: string;
+  description: string;
+  placeholder: boolean;
+};
+
+export const timeline: TimelineEntry[] = [
+  {
+    period: "Present",
+    title: "Data Science, Undergraduate",
+    place: "Binus University",
+    description:
+      "Studying Data Science, focused on data engineering, analytics, and AI. Add your graduation year and highlights here.",
+    placeholder: false,
+  },
+  {
+    period: "Add a date",
+    title: "Add an internship or role",
+    place: "Company name",
+    description:
+      "Placeholder entry. Replace it with an internship, a part-time role, or a project you are proud of.",
+    placeholder: true,
+  },
+];
+
+export const contact = {
+  heading: "Contact",
+  // The one real link. Everything else below is a placeholder until you
+  // replace it with your own.
+  github: "https://github.com/Jereldavin",
+  githubLabel: "github.com/Jereldavin",
+  // PLACEHOLDER — replace with your real email.
+  email: "you@example.com",
+  // PLACEHOLDER — replace with your real LinkedIn URL, or delete the line.
+  linkedin: "https://www.linkedin.com/in/your-handle",
+};
+
+export const nav = {
+  links: [
+    { label: "About", href: "#about" },
+    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#projects" },
+    { label: "Education", href: "#education" },
+    { label: "Contact", href: "#contact" },
+  ],
+};

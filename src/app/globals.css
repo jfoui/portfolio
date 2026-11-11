@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+/* Design system — one palette, one radius scale, one button pair.
+   Near-black ground, light ink, one green accent brightened for dark. No violet. */
+@theme {
+  --color-paper: #0a0a0a;
+  --color-surface: #171717;
+  --color-ink: #f5f4f0;
+  --color-muted: #a3a29c;
+  --color-line: #2a2a28;
+  --color-accent: #2fbf71;
+  --color-accent-hover: #34d399;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hero enters once on load — nothing else moves on scroll. */
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+[data-enter] {
+  animation: enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-enter="1"] {
+  animation-delay: 0.08s;
+}
+[data-enter="2"] {
+  animation-delay: 0.16s;
+}
+[data-enter="3"] {
+  animation-delay: 0.24s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-enter] {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Hover micro-interactions: linked cards lift, buttons step and press,
+   nav links draw their underline. */
+.card-link {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+.card-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgb(255 255 255 / 0.07);
+}
+
+.btn {
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+.nav-link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.25s ease;
+}
+.nav-link:hover {
+  background-size: 100% 1px;
+}
+
+/* Project photo placeholder: a still frame with a dotted ground. */
+.placeholder-frame {
+  background-image: radial-gradient(circle, var(--color-line) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
