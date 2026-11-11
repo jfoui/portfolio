@@ -1,6 +1,7 @@
 import { kv } from "@vercel/kv";
 import { NextRequest, NextResponse } from "next/server";
 
+// Store: portfolio-analytics (Upstash Redis via Vercel KV).
 // Receives one analytics event per POST and stores it in Vercel KV.
 // Never breaks the site: any failure still answers { ok: true }.
 // If the KV store is not linked yet, the event is skipped immediately
