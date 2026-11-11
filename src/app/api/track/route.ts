@@ -19,6 +19,7 @@ export async function POST(req: NextRequest) {
         device: typeof body.device === "string" ? body.device : "",
         browser: typeof body.browser === "string" ? body.browser : "",
         os: typeof body.os === "string" ? body.os : "",
+        model: typeof body.model === "string" ? body.model.slice(0, 100) : "",
         screen: typeof body.screen === "string" ? body.screen : "",
         language: typeof body.language === "string" ? body.language : "",
         timezone: typeof body.timezone === "string" ? body.timezone : "",

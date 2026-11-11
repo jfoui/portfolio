@@ -34,9 +34,16 @@ function detect() {
   return { device, browser, os };
 }
 
-export function sendAnalyticsEvent(type: "visit" | "cv_download") {
+export async function sendAnalyticsEvent(type: "visit" | "cv_download") {
   try {
     const { device, browser, os } = detect();
+    // Exact model (e.g. "Pixel 8") is only exposed by Android Chrome
+    // via userAgentData; everywhere else this stays empty and the
+    // device type above is all the browser shares.
+    const model = await Promise.race([
+      getModel(),
+      new Promise<string>((resolve) => setTimeout(() => resolve(""), 500)),
+    ]);
     fetch("/api/track", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -47,6 +54,7 @@ export function sendAnalyticsEvent(type: "visit" | "cv_download") {
         device,
         browser,
         os,
+        model,
         screen: `${window.innerWidth}x${window.innerHeight}`,
         language: navigator.language || "",
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "",
@@ -56,6 +64,25 @@ export function sendAnalyticsEvent(type: "visit" | "cv_download") {
   } catch {
     // tracking must never break the page
   }
+}
+
+async function getModel(): Promise<string> {
+  try {
+    const uaData = (
+      navigator as unknown as {
+        userAgentData?: {
+          getHighEntropyValues: (hints: string[]) => Promise<{ model?: string }>;
+        };
+      }
+    ).userAgentData;
+    if (uaData?.getHighEntropyValues) {
+      const data = await uaData.getHighEntropyValues(["model"]);
+      return data?.model || "";
+    }
+  } catch {
+    // model not available in this browser
+  }
+  return "";
 }
 
 // Sends one "visit" event per browser session.

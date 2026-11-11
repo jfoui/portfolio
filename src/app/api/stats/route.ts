@@ -9,6 +9,7 @@ type RawEvent = {
   device?: string;
   browser?: string;
   os?: string;
+  model?: string;
   screen?: string;
   language?: string;
   timezone?: string;
@@ -19,7 +20,15 @@ type RawEvent = {
 };
 
 // Public aggregate stats for the analytics dashboard Space.
-// Returns counts and breakdowns only — never IP addresses.
+// Returns counts and breakdowns only. Recent events carry the IP
+// masked to the first three octets (e.g. 103.147.8.x) — enough to
+// recognise a repeat network, never the full address.
+function maskIp(ip?: string): string {
+  if (!ip) return "";
+  const parts = ip.split(".");
+  if (parts.length === 4) return `${parts[0]}.${parts[1]}.${parts[2]}.x`;
+  return "";
+}
 export async function GET() {
   const empty = {
     totals: { visits: 0, downloads: 0, uniqueVisitors: 0 },
@@ -27,6 +36,7 @@ export async function GET() {
     byDevice: {} as Record<string, number>,
     byBrowser: {} as Record<string, number>,
     byOs: {} as Record<string, number>,
+    byModel: {} as Record<string, number>,
     byCountry: {} as Record<string, number>,
     byCity: {} as Record<string, number>,
     byReferrer: {} as Record<string, number>,
@@ -81,12 +91,13 @@ export async function GET() {
       byDevice: count("device"),
       byBrowser: count("browser"),
       byOs: count("os"),
+      byModel: count("model"),
       byCountry: count("country"),
       byCity: count("city"),
       byReferrer: count("referrer"),
       recent: events
         .slice(0, 20)
-        .map(({ ip: _ip, ...rest }) => rest),
+        .map(({ ip, ...rest }) => ({ ...rest, ip: maskIp(ip) })),
     };
     return NextResponse.json(stats);
   } catch {
