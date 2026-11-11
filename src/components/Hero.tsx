@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { track } from "@vercel/analytics";
+import { sendAnalyticsEvent } from "@/components/AnalyticsBeacon";
 import { profile } from "@/data/content";
 
 export default function Hero() {
@@ -56,7 +57,10 @@ export default function Hero() {
               target="_blank"
               rel="noreferrer"
               download
-              onClick={() => track("Download CV")}
+              onClick={() => {
+                track("Download CV");
+                sendAnalyticsEvent("cv_download");
+              }}
               className="btn rounded-md border border-line bg-surface px-5 py-3 text-sm font-medium hover:border-ink"
             >
               Download CV ↓
