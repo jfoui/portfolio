@@ -104,7 +104,7 @@ export const projects: Project[] = [
   {
     title: "Olist E-Commerce Pipeline with Airflow, Postgres and Metabase",
     description:
-      "Daily Airflow pipeline on real Brazilian e-commerce data: raw CSVs land in bronze, cleaned tables in silver, daily revenue and delivery performance in gold, with failing quality checks and a Metabase dashboard on top.",
+      "Daily Airflow pipeline on real Brazilian e-commerce data (Olist, ~100k orders, 2016–2018): loads raw CSVs into PostgreSQL, cleans and transforms them, and builds daily revenue and delivery performance tables, with data quality checks gating each run and a Metabase dashboard on top.",
     tags: ["Apache Airflow", "PostgreSQL", "Docker", "Metabase"],
     link: "",
     placeholder: false,
