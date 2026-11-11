@@ -67,13 +67,10 @@ export default function Hero() {
             <div
               className="flex h-[400px] w-[320px] flex-col items-center justify-center rounded-lg border border-line bg-surface"
               role="img"
-              aria-label="Photo placeholder. Add your photo in src/data/content.ts"
+              aria-label="Profile photo placeholder"
             >
               <span className="font-mono text-6xl font-semibold tracking-tight text-ink">
                 {profile.initials}
-              </span>
-              <span className="mt-4 max-w-[220px] text-center text-sm leading-relaxed text-muted">
-                Add your photo in src/data/content.ts
               </span>
             </div>
           )}

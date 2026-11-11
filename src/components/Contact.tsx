@@ -10,7 +10,7 @@ export default function Contact() {
         </h2>
         <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
           The fastest way to see my work is GitHub. For anything else, reach
-          out. Add your real email below.
+          out.
         </p>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           <a
@@ -22,30 +22,22 @@ export default function Contact() {
             <p className="font-mono text-sm text-muted">GitHub</p>
             <p className="mt-2 font-medium">{contact.githubLabel} →</p>
           </a>
-          <div className="rounded-lg border border-line bg-surface p-6">
-            <p className="font-mono text-sm text-muted">
-              Email{" "}
-              <span className="rounded-full border border-line px-2 py-0.5 text-xs">
-                Placeholder
-              </span>
-            </p>
-            <p className="mt-2 font-medium">{contact.email}</p>
-            <p className="mt-1 text-sm text-muted">
-              Replace with your email in src/data/content.ts
-            </p>
-          </div>
-          <div className="rounded-lg border border-line bg-surface p-6">
-            <p className="font-mono text-sm text-muted">
-              LinkedIn{" "}
-              <span className="rounded-full border border-line px-2 py-0.5 text-xs">
-                Placeholder
-              </span>
-            </p>
-            <p className="mt-2 break-all font-medium">{contact.linkedin}</p>
-            <p className="mt-1 text-sm text-muted">
-              Replace with your profile in src/data/content.ts
-            </p>
-          </div>
+          <a
+            href={`mailto:${contact.email}`}
+            className="card-link rounded-lg border border-line bg-surface p-6"
+          >
+            <p className="font-mono text-sm text-muted">Email</p>
+            <p className="mt-2 break-all font-medium">{contact.email}</p>
+          </a>
+          <a
+            href={contact.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="card-link rounded-lg border border-line bg-surface p-6"
+          >
+            <p className="font-mono text-sm text-muted">LinkedIn</p>
+            <p className="mt-2 font-medium">linkedin.com/in/jereldavin →</p>
+          </a>
         </div>
       </div>
       <footer className="border-t border-line">

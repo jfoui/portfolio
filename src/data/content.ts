@@ -140,8 +140,8 @@ export const projects: Project[] = [
   },
   {
     title: "Project title",
-    description: "Short description: what it does, who it helps, and what you built.",
-    tags: ["Add tech tags"],
+    description: "More details coming soon.",
+    tags: [],
     link: "",
     placeholder: true,
   },
@@ -161,29 +161,17 @@ export const timeline: TimelineEntry[] = [
     title: "Data Science, Undergraduate",
     place: "Binus University",
     description:
-      "Studying Data Science, focused on data engineering, analytics, and AI. Add your graduation year and highlights here.",
+      "Studying Data Science, focused on data engineering, analytics, and AI.",
     placeholder: false,
-  },
-  {
-    period: "Add a date",
-    title: "Add an internship or role",
-    place: "Company name",
-    description:
-      "Placeholder entry. Replace it with an internship, a part-time role, or a project you are proud of.",
-    placeholder: true,
   },
 ];
 
 export const contact = {
   heading: "Contact",
-  // The one real link. Everything else below is a placeholder until you
-  // replace it with your own.
   github: "https://github.com/Jereldavin",
   githubLabel: "github.com/Jereldavin",
-  // PLACEHOLDER — replace with your real email.
-  email: "you@example.com",
-  // PLACEHOLDER — replace with your real LinkedIn URL, or delete the line.
-  linkedin: "https://www.linkedin.com/in/your-handle",
+  email: "jereldavinigvander@gmail.com",
+  linkedin: "https://www.linkedin.com/in/jereldavin",
 };
 
 export const nav = {

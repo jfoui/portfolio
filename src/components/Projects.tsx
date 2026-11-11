@@ -4,11 +4,7 @@ function ProjectCard({ project }: { project: Project }) {
   const inner = (
     <>
       {/* Photo slot — add a screenshot to public/ and a link in content.ts. */}
-      <div className="placeholder-frame flex h-44 items-center justify-center border-b border-line">
-        <span className="max-w-[240px] text-center text-sm leading-relaxed text-muted">
-          Add your project photo
-        </span>
-      </div>
+      <div className="placeholder-frame flex h-44 items-center justify-center border-b border-line"></div>
       <div className="flex flex-1 flex-col p-6">
         <div className="flex items-start justify-between gap-3">
           <h3 className="text-lg font-semibold tracking-tight">
@@ -33,11 +29,6 @@ function ProjectCard({ project }: { project: Project }) {
             </li>
           ))}
         </ul>
-        {project.placeholder && (
-          <p className="mt-5 border-t border-line pt-4 text-sm text-muted">
-            Add this project in src/data/content.ts
-          </p>
-        )}
       </div>
     </>
   );
