@@ -96,7 +96,14 @@ export type Project = {
   placeholder: boolean;
   // Optional result shown as a metric block. Leave out to hide it.
   // `from` is the old value, shown struck through next to the new one.
-  metric?: { label: string; value: string; caption: string; from?: string };
+  // `count` makes the value count up when it scrolls into view.
+  metric?: {
+    label: string;
+    value: string;
+    caption: string;
+    from?: string;
+    count?: { to: number; decimals?: number; prefix?: string; suffix?: string };
+  };
 };
 
 // Five real project cards (Olist pipeline, medallion architecture, NYC
@@ -115,6 +122,7 @@ export const projects: Project[] = [
       label: "Orders processed",
       value: "~100K",
       caption: "Brazilian e-commerce orders, 2016–2018",
+      count: { to: 100, prefix: "~", suffix: "K" },
     },
   },
   {
@@ -144,6 +152,7 @@ export const projects: Project[] = [
       label: "Test AUC",
       value: "0.7531",
       caption: "Random Forest with SMOTE",
+      count: { to: 0.7531, decimals: 4 },
     },
   },
   {
@@ -158,6 +167,7 @@ export const projects: Project[] = [
       value: "0.88",
       caption: "MobileNetV2 vs custom CNN",
       from: "0.72",
+      count: { to: 0.88, decimals: 2 },
     },
   },
   {

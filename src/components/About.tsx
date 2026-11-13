@@ -5,7 +5,7 @@ const facts = [
   { label: "Based in", value: "Jakarta, Indonesia" },
   { label: "Studying", value: "Data Science, Binus University" },
   { label: "Focus", value: "Data engineering, analytics, AI" },
-  { label: "Looking for", value: "Data Engineer internships" },
+  { label: "Looking for", value: "Data & AI internships" },
 ];
 
 export default function About() {

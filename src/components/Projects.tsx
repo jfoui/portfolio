@@ -1,3 +1,5 @@
+import CountUp from "@/components/CountUp";
+import Reveal from "@/components/Reveal";
 import { projects, type Project } from "@/data/content";
 
 function ProjectRow({
@@ -47,7 +49,16 @@ function ProjectRow({
                 {project.metric.from}
               </span>
             )}
-            {project.metric.value}
+            {project.metric.count ? (
+              <CountUp
+                to={project.metric.count.to}
+                decimals={project.metric.count.decimals ?? 0}
+                prefix={project.metric.count.prefix ?? ""}
+                suffix={project.metric.count.suffix ?? ""}
+              />
+            ) : (
+              project.metric.value
+            )}
           </p>
           <p className="mt-1 font-mono text-xs text-muted">
             {project.metric.caption}
@@ -88,7 +99,9 @@ export default function Projects() {
         </p>
         <div className="mt-12">
           {projects.map((project, i) => (
-            <ProjectRow key={i} project={project} index={i} />
+            <Reveal key={i} delay={Math.min(i, 5) * 60}>
+              <ProjectRow project={project} index={i} />
+            </Reveal>
           ))}
         </div>
       </div>

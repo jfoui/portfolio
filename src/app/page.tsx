@@ -5,6 +5,7 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
+import Reveal from "@/components/Reveal";
 
 export default function Home() {
   return (
@@ -12,11 +13,21 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Education />
-        <Contact />
+        <Reveal>
+          <About />
+        </Reveal>
+        <Reveal>
+          <Skills />
+        </Reveal>
+        <Reveal>
+          <Projects />
+        </Reveal>
+        <Reveal>
+          <Education />
+        </Reveal>
+        <Reveal>
+          <Contact />
+        </Reveal>
       </main>
     </>
   );
