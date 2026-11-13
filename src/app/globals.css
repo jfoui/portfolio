@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
-/* Design system — Nightly: monochrome on near-black, one green accent. */
+/* Design system — one palette, one radius scale, one button pair.
+   Near-black ground, light ink, one green accent brightened for dark. No violet. */
 @theme {
   --color-paper: #0a0a0a;
-  --color-surface: #111111;
+  --color-surface: #171717;
   --color-ink: #f5f4f0;
-  --color-muted: #9a9a9a;
-  --color-line: #222222;
+  --color-muted: #a3a29c;
+  --color-line: #2a2a28;
   --color-accent: #2fbf71;
   --color-accent-hover: #34d399;
 
@@ -26,36 +27,64 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Scroll reveal: sections arrive as you reach them. */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+/* Hero enters once on load — nothing else moves on scroll. */
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
+
+[data-enter] {
+  animation: enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-enter="1"] {
+  animation-delay: 0.08s;
+}
+[data-enter="2"] {
+  animation-delay: 0.16s;
+}
+[data-enter="3"] {
+  animation-delay: 0.24s;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  [data-enter] {
+    animation: none;
   }
   html {
     scroll-behavior: auto;
   }
 }
 
-/* Rows: a quiet background shift on hover, nothing lifts. */
-.row-link {
-  transition: background-color 0.2s ease;
+/* Hover micro-interactions: linked cards lift, buttons step and press,
+   nav links draw their underline. */
+.card-link {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
-.row-link:hover {
-  background-color: var(--color-surface);
+.card-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgb(255 255 255 / 0.07);
+}
+
+.btn {
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
 }
 
 .nav-link {
@@ -67,4 +96,10 @@ body {
 }
 .nav-link:hover {
   background-size: 100% 1px;
+}
+
+/* Project photo placeholder: a still frame with a dotted ground. */
+.placeholder-frame {
+  background-image: radial-gradient(circle, var(--color-line) 1px, transparent 1px);
+  background-size: 18px 18px;
 }

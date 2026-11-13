@@ -5,31 +5,18 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
-import Reveal from "@/components/Reveal";
-import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   return (
     <>
-      <ScrollProgress />
       <Nav />
       <main>
         <Hero />
-        <Reveal>
-          <About />
-        </Reveal>
-        <Reveal>
-          <Skills />
-        </Reveal>
-        <Reveal>
-          <Projects />
-        </Reveal>
-        <Reveal>
-          <Education />
-        </Reveal>
-        <Reveal>
-          <Contact />
-        </Reveal>
+        <About />
+        <Skills />
+        <Projects />
+        <Education />
+        <Contact />
       </main>
     </>
   );

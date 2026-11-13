@@ -3,35 +3,43 @@ import { skillGroups } from "@/data/content";
 export default function Skills() {
   return (
     <section id="skills" className="border-b border-line">
-      <div className="mx-auto w-full max-w-7xl px-6 py-28 sm:py-36">
-        <h2 className="mt-6 text-3xl font-medium tracking-tight sm:text-4xl">
-          What I work with.
+      <div className="mx-auto w-full max-w-6xl px-6 py-24 sm:py-32">
+        <p className="font-mono text-sm text-muted">02 / Skills</p>
+        <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+          What I work with
         </h2>
-        <div className="mt-12">
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
           {skillGroups.map((group) => (
-            <div
+            <article
               key={group.title}
-              className="grid gap-2 border-t border-line py-6 md:grid-cols-[240px_1fr] md:gap-6"
+              className="rounded-lg border border-line bg-surface p-6"
             >
-              <div className="flex items-baseline gap-3">
-                <h3 className="text-lg font-medium tracking-tight">
+              <div className="flex items-baseline justify-between gap-3">
+                <h3 className="text-lg font-semibold tracking-tight">
                   {group.title}
                 </h3>
                 {group.note && (
-                  <span className="font-mono text-xs text-muted">
+                  <span className="rounded-full border border-line px-2.5 py-0.5 font-mono text-xs text-muted">
                     {group.note}
                   </span>
                 )}
               </div>
-              <p className="font-mono text-sm leading-relaxed text-muted">
-                {group.skills
-                  .map(
-                    (skill) =>
-                      skill.name + (skill.learning ? " (learning)" : ""),
-                  )
-                  .join("  ·  ")}
-              </p>
-            </div>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <li
+                    key={skill.name}
+                    className="rounded-md border border-line bg-paper px-3 py-1.5 text-sm"
+                  >
+                    {skill.name}
+                    {skill.learning && (
+                      <span className="ml-2 font-mono text-xs text-muted">
+                        learning
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </article>
           ))}
         </div>
       </div>
