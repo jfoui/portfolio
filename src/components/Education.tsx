@@ -4,7 +4,6 @@ export default function Education() {
   return (
     <section id="education" className="border-b border-line">
       <div className="mx-auto w-full max-w-6xl px-6 py-24 sm:py-32">
-        <p className="font-mono text-sm text-muted">04 / Education</p>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
           Education &amp; experience
         </h2>
