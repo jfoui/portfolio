@@ -85,6 +85,8 @@ export type Project = {
   placeholder: boolean;
   // Show the bronze → silver → gold flow on the right side instead of a metric.
   medallionFlow?: boolean;
+  // Show the extract → transform → load flow on the right side instead of a metric.
+  etlFlow?: boolean;
   // Optional result shown as a metric block. Leave out to hide it.
   // `from` is the old value, shown struck through next to the new one.
   // `count` makes the value count up when it scrolls into view.
@@ -132,6 +134,7 @@ export const projects: Project[] = [
     tags: ["Apache Airflow", "PostgreSQL", "Docker", "Pandas"],
     link: "https://github.com/Jereldavin/NYC-ETL-Airflow",
     placeholder: false,
+    etlFlow: true,
   },
   {
     title: "Term Deposit Subscription Prediction",
