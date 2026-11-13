@@ -32,43 +32,58 @@ export type SkillGroup = {
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: "Data Engineering",
+    title: "Core",
     skills: [
       { name: "Python" },
+      { name: "R" },
+      { name: "C" },
       { name: "SQL" },
-      { name: "Apache Airflow" },
-      { name: "dbt" },
-      { name: "ETL & Data Pipelines" },
-      { name: "PostgreSQL" },
     ],
   },
   {
-    title: "Data Science & Analytics",
+    title: "Data Engineering",
     skills: [
-      { name: "Machine Learning" },
+      { name: "Apache Airflow" },
+      { name: "dbt" },
+      { name: "Databricks" },
+      { name: "ETL & Data Pipelines" },
+    ],
+  },
+  {
+    title: "Machine Learning",
+    skills: [
+      { name: "scikit-learn" },
       { name: "Keras" },
       { name: "TensorFlow" },
-      { name: "scikit-learn" },
       { name: "Pandas" },
-      { name: "R" },
+      { name: "MLflow" },
       { name: "Data Analysis" },
       { name: "Data Visualization" },
     ],
   },
   {
-    title: "AI",
+    title: "LLM",
     note: "Learning",
     skills: [
-      { name: "LLMs", learning: true },
       { name: "RAG", learning: true },
+      { name: "LangChain", learning: true },
+      { name: "LangGraph", learning: true },
+      { name: "Pinecone", learning: true },
     ],
   },
   {
-    title: "Tools",
+    title: "Architecture & Concept",
+    skills: [{ name: "Medallion Architecture" }],
+  },
+  {
+    title: "Database",
+    skills: [{ name: "PostgreSQL" }],
+  },
+  {
+    title: "Infrastructure & Tools",
     skills: [
       { name: "Docker" },
       { name: "Git" },
-      { name: "MLflow" },
       { name: "Streamlit" },
       { name: "9router" },
       { name: "Nous Hermes" },
