@@ -12,9 +12,6 @@ export default function About() {
   return (
     <section id="about" className="border-b border-line">
       <div className="mx-auto w-full max-w-7xl px-6 py-28 sm:py-36">
-        <p className="font-mono text-xs uppercase tracking-widest text-muted">
-          01 / About
-        </p>
         <h2 className="mt-6 max-w-3xl text-3xl font-medium leading-tight tracking-tight sm:text-4xl">
           Data pipelines, analyses, and models, built from raw data.
         </h2>

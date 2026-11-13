@@ -4,9 +4,6 @@ export default function Skills() {
   return (
     <section id="skills" className="border-b border-line">
       <div className="mx-auto w-full max-w-7xl px-6 py-28 sm:py-36">
-        <p className="font-mono text-xs uppercase tracking-widest text-muted">
-          02 / Skills
-        </p>
         <h2 className="mt-6 text-3xl font-medium tracking-tight sm:text-4xl">
           What I work with.
         </h2>

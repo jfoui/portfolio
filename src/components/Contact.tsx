@@ -2,11 +2,23 @@ import { contact, profile } from "@/data/content";
 import LoadTime from "@/components/LoadTime";
 
 const links = [
-  { label: "GitHub", href: contact.github, value: contact.githubLabel },
+  {
+    label: "Email",
+    href: `mailto:${contact.email}`,
+    value: contact.email,
+    external: false,
+  },
+  {
+    label: "GitHub",
+    href: contact.github,
+    value: contact.githubLabel,
+    external: true,
+  },
   {
     label: "LinkedIn",
     href: contact.linkedin,
     value: "linkedin.com/in/jereldavin",
+    external: true,
   },
 ];
 
@@ -14,33 +26,22 @@ export default function Contact() {
   return (
     <section id="contact">
       <div className="mx-auto w-full max-w-7xl px-6 py-28 sm:py-36">
-        <p className="font-mono text-xs uppercase tracking-widest text-muted">
-          05 / Contact
-        </p>
-        <h2 className="mt-6 max-w-3xl text-3xl font-medium leading-tight tracking-tight sm:text-5xl">
-          Have data that needs turning into something useful? Tell me what it
-          is.
-        </h2>
-        <a
-          href={`mailto:${contact.email}`}
-          className="nav-link mt-8 inline-block text-xl font-medium tracking-tight sm:text-2xl"
-        >
-          {contact.email}
-        </a>
         <div className="mt-12">
           {links.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              target="_blank"
-              rel="noreferrer"
+              {...(link.external
+                ? { target: "_blank", rel: "noreferrer" }
+                : {})}
               className="row-link flex items-baseline justify-between gap-4 border-t border-line px-2 py-5 sm:px-4"
             >
               <span className="font-mono text-sm text-muted">
                 {link.label}
               </span>
               <span className="text-[15px]">
-                {link.value} <span className="text-muted">↗</span>
+                {link.value}{" "}
+                {link.external && <span className="text-muted">↗</span>}
               </span>
             </a>
           ))}

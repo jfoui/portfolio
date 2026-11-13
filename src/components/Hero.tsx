@@ -6,11 +6,7 @@ import { sendAnalyticsEvent } from "@/components/AnalyticsBeacon";
 import CountUp from "@/components/CountUp";
 import { profile, projects } from "@/data/content";
 
-const edits = [
-  { n: "01", label: "First draft" },
-  { n: "02", label: "Say what I build" },
-  { n: "03", label: "Shorter" },
-];
+const edits = ["01", "02", "03"];
 
 // The headline tightens as you scroll, like Nightly: the section is tall
 // and sticky, and scroll progress drives which edit is live.
@@ -67,12 +63,9 @@ export default function Hero() {
       <div className="sticky top-0 flex min-h-svh items-center">
         <div className="mx-auto grid w-full max-w-7xl gap-10 px-6 py-24 md:grid-cols-[200px_1fr]">
           <aside className="hidden md:block">
-            <p className="font-mono text-xs uppercase tracking-widest text-muted">
-              History of this headline
-            </p>
-            <ol className="relative mt-6 space-y-5 border-l border-line pl-5">
-              {edits.map((edit, i) => (
-                <li key={edit.n} className="relative">
+            <ol className="relative space-y-5 border-l border-line pl-5">
+              {edits.map((n, i) => (
+                <li key={n} className="relative">
                   <span
                     className={`absolute -left-[26px] top-1.5 h-2 w-2 rounded-full transition-colors duration-500 ${
                       i <= stage ? "bg-accent" : "bg-line"
@@ -84,14 +77,7 @@ export default function Hero() {
                       i <= stage ? "text-ink" : "text-muted"
                     }`}
                   >
-                    {edit.n}
-                  </p>
-                  <p
-                    className={`mt-0.5 text-sm transition-colors duration-500 ${
-                      i <= stage ? "text-ink" : "text-muted"
-                    }`}
-                  >
-                    {edit.label}
+                    {n}
                   </p>
                 </li>
               ))}
@@ -99,6 +85,36 @@ export default function Hero() {
           </aside>
 
           <div>
+            <ol
+              className="mb-10 flex items-center md:hidden"
+              aria-hidden="true"
+            >
+              {edits.map((n, i) => (
+                <li key={n} className="flex items-center">
+                  <span className="flex items-center gap-2">
+                    <span
+                      className={`h-2 w-2 rounded-full transition-colors duration-500 ${
+                        i <= stage ? "bg-accent" : "bg-line"
+                      }`}
+                    />
+                    <span
+                      className={`font-mono text-xs transition-colors duration-500 ${
+                        i <= stage ? "text-ink" : "text-muted"
+                      }`}
+                    >
+                      {n}
+                    </span>
+                  </span>
+                  {i < edits.length - 1 && (
+                    <span
+                      className={`mx-3 h-px w-10 transition-colors duration-500 ${
+                        i < stage ? "bg-accent" : "bg-line"
+                      }`}
+                    />
+                  )}
+                </li>
+              ))}
+            </ol>
             <h1 className="text-4xl font-medium leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
               <span className={line(true, stage >= 1)}>
                 Data Science student working across data engineering,

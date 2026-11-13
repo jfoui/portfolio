@@ -88,9 +88,6 @@ export default function Projects() {
   return (
     <section id="projects" className="border-b border-line">
       <div className="mx-auto w-full max-w-7xl px-6 py-28 sm:py-36">
-        <p className="font-mono text-xs uppercase tracking-widest text-muted">
-          03 / Projects
-        </p>
         <h2 className="mt-6 text-3xl font-medium tracking-tight sm:text-4xl">
           Selected work.
         </h2>

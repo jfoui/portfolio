@@ -6,10 +6,12 @@ import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import Reveal from "@/components/Reveal";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   return (
     <>
+      <ScrollProgress />
       <Nav />
       <main>
         <Hero />
