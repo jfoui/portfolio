@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import AsciiArt from "@/components/AsciiArt";
 import { track } from "@vercel/analytics";
 import { sendAnalyticsEvent } from "@/components/AnalyticsBeacon";
 import { profile } from "@/data/content";
@@ -68,29 +68,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Photo slot — replace the monogram with your photo in
-            src/data/content.ts (set profile.photo to "/photo.jpg"). */}
+        {/* Interactive ASCII art in place of a photo. */}
         <div data-enter="2" className="shrink-0">
-          {profile.photo ? (
-            <Image
-              src={profile.photo}
-              alt={`Portrait of ${profile.name}`}
-              width={320}
-              height={400}
-              className="h-[400px] w-[320px] rounded-lg border border-line object-cover"
-              priority
-            />
-          ) : (
-            <div
-              className="flex h-[400px] w-[320px] flex-col items-center justify-center rounded-lg border border-line bg-surface"
-              role="img"
-              aria-label="Profile photo placeholder"
-            >
-              <span className="font-mono text-6xl font-semibold tracking-tight text-ink">
-                {profile.initials}
-              </span>
-            </div>
-          )}
+          <AsciiArt />
         </div>
       </div>
     </section>
