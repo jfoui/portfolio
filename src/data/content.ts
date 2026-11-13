@@ -50,6 +50,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "TensorFlow" },
       { name: "scikit-learn" },
       { name: "Pandas" },
+      { name: "R" },
       { name: "Data Analysis" },
       { name: "Data Visualization" },
     ],
