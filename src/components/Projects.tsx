@@ -103,9 +103,6 @@ export default function Projects() {
         <h2 className="mt-6 text-3xl font-medium tracking-tight sm:text-4xl">
           Selected work.
         </h2>
-        <p className="mt-3 text-lg text-muted">
-          What changed, line by line.
-        </p>
         <div className="mt-12">
           {projects.map((project, i) => (
             <Reveal key={i} delay={Math.min(i, 5) * 60}>
