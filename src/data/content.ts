@@ -43,8 +43,6 @@ export const about = {
     "I'm a Data Science student at Binus University, working across data engineering, analytics, and AI. I like turning raw data into something people can use: a pipeline, an analysis, or a model.",
     "Right now I'm building foundations in data engineering and machine learning, and learning to build AI (LLMs and RAG) on top of them.",
   ],
-  // A small diagram of a typical pipeline. Labels only — edit the words here.
-  pipeline: ["Sources", "Ingest", "Transform", "Analyze", "Serve"],
 };
 
 export type SkillGroup = {
@@ -94,6 +92,18 @@ export type Project = {
   link: string;
   // Set to false once the project is real.
   placeholder: boolean;
+  // Show the bronze → silver → gold flow on the right side instead of a metric.
+  medallionFlow?: boolean;
+  // Optional result shown as a metric block. Leave out to hide it.
+  // `from` is the old value, shown struck through next to the new one.
+  // `count` makes the value count up when it scrolls into view.
+  metric?: {
+    label: string;
+    value: string;
+    caption: string;
+    from?: string;
+    count?: { to: number; decimals?: number; prefix?: string; suffix?: string };
+  };
 };
 
 // Five real project cards (Olist pipeline, medallion architecture, NYC
@@ -108,6 +118,12 @@ export const projects: Project[] = [
     tags: ["Apache Airflow", "PostgreSQL", "Docker", "Metabase"],
     link: "",
     placeholder: false,
+    metric: {
+      label: "Orders processed",
+      value: "~100K",
+      caption: "Brazilian e-commerce orders, 2016–2018",
+      count: { to: 100, prefix: "~", suffix: "K" },
+    },
   },
   {
     title: "Airflow E-Commerce Medallion Architecture",
@@ -116,6 +132,7 @@ export const projects: Project[] = [
     tags: ["Apache Airflow", "PostgreSQL", "Medallion Architecture"],
     link: "",
     placeholder: false,
+    medallionFlow: true,
   },
   {
     title: "NYC Taxi ETL with Airflow",
@@ -132,6 +149,12 @@ export const projects: Project[] = [
     tags: ["Python", "scikit-learn", "Random Forest", "SMOTE"],
     link: "https://github.com/Jereldavin/Term-Deposit-Subscription-Prediction",
     placeholder: false,
+    metric: {
+      label: "Test AUC",
+      value: "0.7531",
+      caption: "Random Forest with SMOTE",
+      count: { to: 0.7531, decimals: 4 },
+    },
   },
   {
     title: "Disaster Image Classification",
@@ -140,6 +163,13 @@ export const projects: Project[] = [
     tags: ["Python", "TensorFlow", "CNN", "Transfer Learning"],
     link: "https://github.com/Jereldavin/Disaster-Classification",
     placeholder: false,
+    metric: {
+      label: "Test accuracy",
+      value: "0.88",
+      caption: "MobileNetV2 vs custom CNN",
+      from: "0.72",
+      count: { to: 0.88, decimals: 2 },
+    },
   },
   {
     title: "Project title",

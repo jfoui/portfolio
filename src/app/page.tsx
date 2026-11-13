@@ -1,4 +1,6 @@
 import Nav from "@/components/Nav";
+import MobileNavBar from "@/components/MobileNavBar";
+import Reveal from "@/components/Reveal";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
@@ -10,13 +12,20 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <main>
+      <MobileNavBar />
+      <main className="pb-14 md:pb-0">
         <Hero />
         <About />
-        <Skills />
-        <Projects />
+        <Reveal>
+          <Skills />
+        </Reveal>
+        <Reveal>
+          <Projects />
+        </Reveal>
         <Education />
-        <Contact />
+        <Reveal>
+          <Contact />
+        </Reveal>
       </main>
     </>
   );
