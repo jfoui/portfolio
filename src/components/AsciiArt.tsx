@@ -24,9 +24,9 @@ const INK = "#e8e8e8";
 const MUTED = "#5c5c5c";
 const MID = "#7fb894";
 
-// Canvas size (the photo slot is 320x400; the caption takes the bottom).
+// Canvas size (matches the old photo slot, 320x400).
 const W = 320;
-const H = 360;
+const H = 400;
 const FONT_SIZE = 24;
 
 export default function AsciiArt() {
@@ -171,14 +171,11 @@ export default function AsciiArt() {
 
   return (
     <div
-      className="flex h-[400px] w-[320px] flex-col items-center justify-center rounded-lg border border-line bg-surface"
+      className="flex h-[400px] w-[320px] items-center justify-center"
       role="img"
       aria-label="Interactive ASCII art of the initials J I. Move your cursor over it, click to scramble."
     >
-      <canvas ref={canvasRef} className="h-[360px] w-[320px] cursor-crosshair" />
-      <p className="mt-1 font-mono text-xs text-muted">
-        move your cursor — click to scramble
-      </p>
+      <canvas ref={canvasRef} className="h-[400px] w-[320px] cursor-crosshair" />
     </div>
   );
 }
