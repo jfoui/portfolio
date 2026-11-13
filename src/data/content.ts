@@ -1,24 +1,3 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// THE ONE FILE TO EDIT
-// ─────────────────────────────────────────────────────────────────────────────
-// Everything on the site — text, skills, projects, education, contact links —
-// lives in this file. Edit it, save, and the site updates. No other file
-// needs to change to add a project, a photo, or a description.
-//
-// HOW TO ADD YOUR PHOTO
-//   1. Put your photo in the `public/` folder, e.g. `public/photo.jpg`.
-//   2. Set `photo: "/photo.jpg"` below.
-//   Until then the site shows your initials ("JI") in a monogram frame.
-//
-// HOW TO ADD A PROJECT
-//   Copy one of the placeholder objects in `projects` below, fill in its
-//   title, description, tags and link, and delete the placeholder ones.
-//
-// HOW TO CHANGE ANY TEXT
-//   Edit the strings in this file. Keep them short and plain — one idea
-//   per line — and the design still holds.
-// ─────────────────────────────────────────────────────────────────────────────
-
 export const profile = {
   name: "Jereldavin Igvander",
   // Shown under the name in the hero.
@@ -28,7 +7,7 @@ export const profile = {
     "Data Science student working across data engineering, analytics, and AI, turning raw data into pipelines, analyses, and models people can use.",
   // Leave empty ("") to keep the initials monogram.
   // Set to "/photo.jpg" (or your file name) after adding the photo to public/.
-  photo: "/photo.jpg",
+  photo: "/photo.png",
   initials: "JI",
   location: "Jakarta, Indonesia",
   // Public link to the CV PDF (Muse file storage — the link expires, so
@@ -41,7 +20,7 @@ export const about = {
   // Short, plain paragraphs. Replace these with your own story.
   paragraphs: [
     "I'm a Data Science student at Binus University, working across data engineering, analytics, and AI. I like turning raw data into something people can use: a pipeline, an analysis, or a model.",
-    "Right now I'm building foundations in data engineering and machine learning, and learning to build AI (LLMs and RAG) on top of them.",
+    "Right now I'm building foundations in data engineering and machine learning, and learning AI engineering (LLMs and RAG) on top of them.",
   ],
 };
 
