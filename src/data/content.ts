@@ -58,9 +58,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "Python" },
       { name: "SQL" },
       { name: "Apache Airflow" },
-      { name: "Apache Kafka" },
       { name: "dbt" },
-      { name: "Apache Spark" },
       { name: "ETL & Data Pipelines" },
       { name: "PostgreSQL" },
     ],
@@ -69,6 +67,7 @@ export const skillGroups: SkillGroup[] = [
     title: "Data Science & Analytics",
     skills: [
       { name: "Machine Learning" },
+      { name: "Keras" },
       { name: "Data Analysis" },
       { name: "Data Visualization" },
     ],
@@ -80,7 +79,12 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "Tools",
-    skills: [{ name: "Docker" }, { name: "Git" }],
+    skills: [
+      { name: "Docker" },
+      { name: "Git" },
+      { name: "MLflow" },
+      { name: "Streamlit" },
+    ],
   },
 ];
 
