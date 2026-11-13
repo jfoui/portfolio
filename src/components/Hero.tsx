@@ -1,6 +1,5 @@
 "use client";
 
-import AsciiArt from "@/components/AsciiArt";
 import { track } from "@vercel/analytics";
 import { sendAnalyticsEvent } from "@/components/AnalyticsBeacon";
 import { profile } from "@/data/content";
@@ -66,11 +65,6 @@ export default function Hero() {
               Download CV ↓
             </a>
           </div>
-        </div>
-
-        {/* Interactive ASCII art in place of a photo. */}
-        <div data-enter="2" className="shrink-0">
-          <AsciiArt />
         </div>
       </div>
     </section>
