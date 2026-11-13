@@ -68,6 +68,8 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       { name: "Machine Learning" },
       { name: "Keras" },
+      { name: "TensorFlow" },
+      { name: "Pandas" },
       { name: "Data Analysis" },
       { name: "Data Visualization" },
     ],
@@ -75,7 +77,10 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "AI",
     note: "Learning",
-    skills: [{ name: "LLMs", learning: true }, { name: "RAG", learning: true }],
+    skills: [
+      { name: "LLMs", learning: true },
+      { name: "RAG", learning: true },
+    ],
   },
   {
     title: "Tools",
@@ -84,6 +89,8 @@ export const skillGroups: SkillGroup[] = [
       { name: "Git" },
       { name: "MLflow" },
       { name: "Streamlit" },
+      { name: "9router" },
+      { name: "Nous Hermes" },
     ],
   },
 ];
