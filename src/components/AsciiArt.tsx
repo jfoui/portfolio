@@ -19,6 +19,13 @@ const ART = [
 const BG_CHARS = ["·", ".", ":", " "];
 const HOT_CHARS = ["*", "#", "@"];
 
+// Deterministic pseudo-random value for a cell (0..1). Stable across renders,
+// so the abstract shape doesn't jump around.
+const hash = (r: number, c: number) => {
+  const x = Math.sin(r * 127.1 + c * 311.7) * 43758.5453;
+  return x - Math.floor(x);
+};
+
 const ACCENT = "#2fbf71";
 const INK = "#e8e8e8";
 const MUTED = "#5c5c5c";
@@ -78,11 +85,35 @@ export default function AsciiArt() {
       }
     }
 
+    // Abstract shape: background characters only appear inside an organic
+    // blob (denser near the center, fading irregularly outward), never as a
+    // full rectangle. The "JI" letters are always drawn.
+    const present: boolean[][] = [];
+    for (let r = 0; r < rows; r++) {
+      present[r] = [];
+      for (let c = 0; c < cols; c++) {
+        if (isLetter[r][c]) {
+          present[r][c] = true;
+          continue;
+        }
+        // Normalized distance from the center (-1..1), stretched so the
+        // blob is taller than it is wide.
+        const nx = (c - cols / 2) / (cols / 2);
+        const ny = (r - rows / 2) / (rows / 2);
+        const d = Math.sqrt(nx * nx * 1.4 + ny * ny);
+        // Wavy edge: the noise breaks the outline so it is not a circle.
+        const edge = 1 - d * 0.8 + (hash(r, c) - 0.5) * 0.55;
+        present[r][c] = edge > 0.32;
+      }
+    }
+
     const draw = () => {
       ctx.clearRect(0, 0, W, H);
       const m = mouseRef.current;
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
+          // Outside the abstract shape: draw nothing.
+          if (!present[r][c]) continue;
           const x = c * charW;
           const y = r * FONT_SIZE;
           const cx = x + charW / 2;
@@ -133,7 +164,7 @@ export default function AsciiArt() {
         window.setTimeout(() => {
           for (let r = 0; r < rows; r++) {
             for (let c = 0; c < cols; c++) {
-              if (!isLetter[r][c] && Math.random() < 0.4) {
+              if (present[r][c] && !isLetter[r][c] && Math.random() < 0.4) {
                 bgChar[r][c] =
                   BG_CHARS[Math.floor(Math.random() * BG_CHARS.length)];
               }
@@ -153,7 +184,7 @@ export default function AsciiArt() {
       for (let i = 0; i < 6; i++) {
         const r = Math.floor(Math.random() * rows);
         const c = Math.floor(Math.random() * cols);
-        if (!isLetter[r][c]) {
+        if (present[r][c] && !isLetter[r][c]) {
           bgChar[r][c] =
             BG_CHARS[Math.floor(Math.random() * BG_CHARS.length)];
         }
