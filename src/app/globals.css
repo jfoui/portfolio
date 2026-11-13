@@ -1,13 +1,12 @@
 @import "tailwindcss";
 
-/* Design system — one palette, one radius scale, one button pair.
-   Near-black ground, light ink, one green accent brightened for dark. No violet. */
+/* Design system — Nightly: monochrome on near-black, one green accent. */
 @theme {
   --color-paper: #0a0a0a;
-  --color-surface: #171717;
+  --color-surface: #111111;
   --color-ink: #f5f4f0;
-  --color-muted: #a3a29c;
-  --color-line: #2a2a28;
+  --color-muted: #9a9a9a;
+  --color-line: #222222;
   --color-accent: #2fbf71;
   --color-accent-hover: #34d399;
 
@@ -62,29 +61,12 @@ body {
   }
 }
 
-/* Hover micro-interactions: linked cards lift, buttons step and press,
-   nav links draw their underline. */
-.card-link {
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
+/* Rows: a quiet background shift on hover, nothing lifts. */
+.row-link {
+  transition: background-color 0.2s ease;
 }
-.card-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgb(255 255 255 / 0.07);
-}
-
-.btn {
-  transition:
-    transform 0.15s ease,
-    background-color 0.15s ease;
-}
-.btn:hover {
-  transform: translateY(-1px);
-}
-.btn:active {
-  transform: translateY(0);
+.row-link:hover {
+  background-color: var(--color-surface);
 }
 
 .nav-link {
@@ -96,10 +78,4 @@ body {
 }
 .nav-link:hover {
   background-size: 100% 1px;
-}
-
-/* Project photo placeholder: a still frame with a dotted ground. */
-.placeholder-frame {
-  background-image: radial-gradient(circle, var(--color-line) 1px, transparent 1px);
-  background-size: 18px 18px;
 }

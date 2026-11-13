@@ -1,36 +1,52 @@
-import { about } from "@/data/content";
+import Image from "next/image";
+import { about, profile } from "@/data/content";
+
+const facts = [
+  { label: "Based in", value: "Jakarta, Indonesia" },
+  { label: "Studying", value: "Data Science, Binus University" },
+  { label: "Focus", value: "Data engineering, analytics, AI" },
+  { label: "Looking for", value: "Data Engineer internships" },
+];
 
 export default function About() {
   return (
     <section id="about" className="border-b border-line">
-      <div className="mx-auto w-full max-w-6xl px-6 py-24 sm:py-32">
-        <p className="font-mono text-sm text-muted">01 / About</p>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-          {about.heading}
+      <div className="mx-auto w-full max-w-7xl px-6 py-28 sm:py-36">
+        <p className="font-mono text-xs uppercase tracking-widest text-muted">
+          01 / About
+        </p>
+        <h2 className="mt-6 max-w-3xl text-3xl font-medium leading-tight tracking-tight sm:text-4xl">
+          Data pipelines, analyses, and models, built from raw data.
         </h2>
-        <div className="mt-8 grid gap-12 md:grid-cols-2">
+        <div className="mt-12 grid gap-12 md:grid-cols-[1fr_280px]">
           <div className="space-y-5 text-lg leading-relaxed text-muted">
             {about.paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
           </div>
           <div>
-            <p className="text-sm font-medium">How data flows through my work</p>
-            <ol className="mt-5 flex flex-col gap-0">
-              {about.pipeline.map((step, i) => (
-                <li key={step} className="flex items-start gap-4">
-                  <span className="flex flex-col items-center">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line bg-surface font-mono text-xs font-semibold">
-                      {i + 1}
-                    </span>
-                    {i < about.pipeline.length - 1 && (
-                      <span className="h-6 w-px bg-line" aria-hidden="true" />
-                    )}
-                  </span>
-                  <span className="pt-2 text-[15px] font-medium">{step}</span>
-                </li>
+            {profile.photo && (
+              <Image
+                src={profile.photo}
+                alt={`Portrait of ${profile.name}`}
+                width={280}
+                height={350}
+                className="h-[350px] w-[280px] rounded-md border border-line object-cover"
+              />
+            )}
+            <dl className="mt-8">
+              {facts.map((fact) => (
+                <div
+                  key={fact.label}
+                  className="flex items-baseline justify-between gap-4 border-t border-line py-3"
+                >
+                  <dt className="font-mono text-xs uppercase tracking-wide text-muted">
+                    {fact.label}
+                  </dt>
+                  <dd className="text-right text-sm">{fact.value}</dd>
+                </div>
               ))}
-            </ol>
+            </dl>
           </div>
         </div>
       </div>

@@ -94,6 +94,9 @@ export type Project = {
   link: string;
   // Set to false once the project is real.
   placeholder: boolean;
+  // Optional result shown as a metric block. Leave out to hide it.
+  // `from` is the old value, shown struck through next to the new one.
+  metric?: { label: string; value: string; caption: string; from?: string };
 };
 
 // Five real project cards (Olist pipeline, medallion architecture, NYC
@@ -108,6 +111,11 @@ export const projects: Project[] = [
     tags: ["Apache Airflow", "PostgreSQL", "Docker", "Metabase"],
     link: "",
     placeholder: false,
+    metric: {
+      label: "Orders processed",
+      value: "~100K",
+      caption: "Brazilian e-commerce orders, 2016–2018",
+    },
   },
   {
     title: "Airflow E-Commerce Medallion Architecture",
@@ -132,6 +140,11 @@ export const projects: Project[] = [
     tags: ["Python", "scikit-learn", "Random Forest", "SMOTE"],
     link: "https://github.com/Jereldavin/Term-Deposit-Subscription-Prediction",
     placeholder: false,
+    metric: {
+      label: "Test AUC",
+      value: "0.7531",
+      caption: "Random Forest with SMOTE",
+    },
   },
   {
     title: "Disaster Image Classification",
@@ -140,6 +153,12 @@ export const projects: Project[] = [
     tags: ["Python", "TensorFlow", "CNN", "Transfer Learning"],
     link: "https://github.com/Jereldavin/Disaster-Classification",
     placeholder: false,
+    metric: {
+      label: "Test accuracy",
+      value: "0.88",
+      caption: "MobileNetV2 vs custom CNN",
+      from: "0.72",
+    },
   },
   {
     title: "Project title",
@@ -179,9 +198,9 @@ export const contact = {
 
 export const nav = {
   links: [
+    { label: "Projects", href: "#projects" },
     { label: "About", href: "#about" },
     { label: "Skills", href: "#skills" },
-    { label: "Projects", href: "#projects" },
     { label: "Education", href: "#education" },
     { label: "Contact", href: "#contact" },
   ],
