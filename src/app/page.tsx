@@ -22,7 +22,9 @@ export default function Home() {
         <Reveal>
           <Projects />
         </Reveal>
-        <Education />
+        <Reveal>
+          <Education />
+        </Reveal>
         <Reveal>
           <Contact />
         </Reveal>
