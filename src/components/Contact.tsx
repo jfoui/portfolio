@@ -26,6 +26,9 @@ export default function Contact() {
   return (
     <section id="contact">
       <div className="mx-auto w-full max-w-7xl px-6 py-28 sm:py-36">
+        <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">
+          Get in touch.
+        </h2>
         <div className="mt-12">
           {links.map((link) => (
             <a
