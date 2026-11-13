@@ -1,4 +1,5 @@
 import CountUp from "@/components/CountUp";
+import EtlFlow from "@/components/EtlFlow";
 import MedallionFlow from "@/components/MedallionFlow";
 import Reveal from "@/components/Reveal";
 import { projects, type Project } from "@/data/content";
@@ -69,6 +70,11 @@ function ProjectRow({
       {project.medallionFlow && (
         <div className="shrink-0 md:flex md:justify-end">
           <MedallionFlow />
+        </div>
+      )}
+      {project.etlFlow && (
+        <div className="shrink-0 md:flex md:justify-end">
+          <EtlFlow />
         </div>
       )}
     </div>
