@@ -48,6 +48,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "Machine Learning" },
       { name: "Keras" },
       { name: "TensorFlow" },
+      { name: "scikit-learn" },
       { name: "Pandas" },
       { name: "Data Analysis" },
       { name: "Data Visualization" },
