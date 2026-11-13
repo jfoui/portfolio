@@ -47,6 +47,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "dbt" },
       { name: "Databricks" },
       { name: "ETL & Data Pipelines" },
+      { name: "PySpark" },
     ],
   },
   {
@@ -182,11 +183,18 @@ export const projects: Project[] = [
     },
   },
   {
-    title: "Project title",
-    description: "More details coming soon.",
-    tags: [],
+    title: "Real-Time Rain Prediction with PySpark",
+    description:
+      "Live rain prediction for Jakarta: fetches real-time weather data from Open-Meteo and MET Norway APIs, processes it with PySpark, and predicts rain with logistic regression on temperature, humidity, and wind speed.",
+    tags: ["PySpark", "Python", "Logistic Regression", "Real-Time API Fetch"],
     link: "",
-    placeholder: true,
+    placeholder: false,
+    metric: {
+      label: "Test AUC",
+      value: "0.883",
+      caption: "Logistic Regression on live API data",
+      count: { to: 0.883, decimals: 3 },
+    },
   },
 ];
 
