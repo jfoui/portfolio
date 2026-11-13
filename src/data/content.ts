@@ -7,7 +7,7 @@ export const profile = {
     "Data Science student working across data engineering, analytics, and AI, turning raw data into pipelines, analyses, and models people can use.",
   // Leave empty ("") to keep the initials monogram.
   // Set to "/photo.jpg" (or your file name) after adding the photo to public/.
-  photo: "/photo.png",
+  photo: "",
   initials: "JI",
   location: "Jakarta, Indonesia",
   // Public link to the CV PDF (Muse file storage — the link expires, so
