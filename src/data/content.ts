@@ -142,6 +142,15 @@ export const projects: Project[] = [
     medallionFlow: true,
   },
   {
+    title: "NYC Taxi ETL with Airflow",
+    description:
+      "ETL pipeline for New York City Yellow Taxi trip records into PostgreSQL, orchestrated with Airflow 3 TaskFlow API inside Docker, using XCom for inter-task metadata and Pandas for transformation.",
+    tags: ["Apache Airflow", "PostgreSQL", "Docker", "Pandas"],
+    link: "https://github.com/Jereldavin/NYC-ETL-Airflow",
+    placeholder: false,
+    etlFlow: true,
+  },
+  {
     title: "Crypto News (Macro) RAG QA",
     description:
       "Question-answering RAG over my own crypto news (macro) archive: a rolling one-week window of Telegram digests from 38 channels, embedded with MiniLM and stored in Chroma, answered by Qwen2.5-3B. It cites its sources and refuses when the answer is not in the archive.",
@@ -154,15 +163,6 @@ export const projects: Project[] = [
       caption: "One week of crypto news, 38 channels",
       count: { to: 1270 },
     },
-  },
-  {
-    title: "NYC Taxi ETL with Airflow",
-    description:
-      "ETL pipeline for New York City Yellow Taxi trip records into PostgreSQL, orchestrated with Airflow 3 TaskFlow API inside Docker, using XCom for inter-task metadata and Pandas for transformation.",
-    tags: ["Apache Airflow", "PostgreSQL", "Docker", "Pandas"],
-    link: "https://github.com/Jereldavin/NYC-ETL-Airflow",
-    placeholder: false,
-    etlFlow: true,
   },
   {
     title: "Term Deposit Subscription Prediction",
