@@ -64,12 +64,11 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "LLM",
-    note: "Learning",
     skills: [
-      { name: "RAG", learning: true },
-      { name: "LangChain", learning: true },
-      { name: "LangGraph", learning: true },
-      { name: "Pinecone", learning: true },
+      { name: "RAG" },
+      { name: "LangChain" },
+      { name: "LangGraph" },
+      { name: "Pinecone" },
     ],
   },
   {
@@ -116,10 +115,8 @@ export type Project = {
   };
 };
 
-// Five real project cards (Olist pipeline, medallion architecture, NYC
-// Taxi ETL, term deposit, disaster classification). The last one stays a
-// placeholder until the user says otherwise. Olist link stays empty until
-// the user sends the repo link.
+// Seven project cards. Olist and RAG links stay empty until the user sends
+// the repo links.
 export const projects: Project[] = [
   {
     title: "Olist E-Commerce Pipeline with Airflow, Postgres and Metabase",
@@ -143,6 +140,20 @@ export const projects: Project[] = [
     link: "",
     placeholder: false,
     medallionFlow: true,
+  },
+  {
+    title: "Crypto News (Macro) RAG QA",
+    description:
+      "Question-answering RAG over my own crypto news (macro) archive: a rolling one-week window of Telegram digests from 38 channels, embedded with MiniLM and stored in Chroma, answered by Qwen2.5-3B. It cites its sources and refuses when the answer is not in the archive.",
+    tags: ["Python", "LangChain", "RAG", "Qwen2.5-3B", "Chroma"],
+    link: "",
+    placeholder: false,
+    metric: {
+      label: "Posts indexed",
+      value: "1,270",
+      caption: "One week of crypto news, 38 channels",
+      count: { to: 1270 },
+    },
   },
   {
     title: "NYC Taxi ETL with Airflow",
