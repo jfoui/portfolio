@@ -10,9 +10,9 @@ export const profile = {
   photo: "",
   initials: "JI",
   location: "Jakarta, Indonesia",
-  // Public link to the CV PDF (Muse file storage — the link expires, so
-  // re-upload the file and update this URL when it lapses).
-  cv: "https://muse.ai/files/1324075710795009/2138800980178611/ryr4l627w9o5gobup3a0uh4r/Jereldavin_Igvander_CV.pdf",
+  // Public link to the CV PDF (Google Drive direct download — no expiry,
+  // so no link refresh is needed; re-upload the Drive file when the CV changes).
+  cv: "https://drive.google.com/uc?export=download&id=1V5uKs2kt6bi_Ol9EcShfcEPP6srlqRmO",
 };
 
 export const about = {
