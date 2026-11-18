@@ -51,7 +51,7 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
-    title: "Machine Learning",
+    title: "Data Science",
     skills: [
       { name: "scikit-learn" },
       { name: "Keras" },
