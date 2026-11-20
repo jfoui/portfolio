@@ -121,7 +121,7 @@ export const projects: Project[] = [
   {
     title: "Olist E-Commerce Pipeline with Airflow, Postgres and Metabase",
     description:
-      "Daily Airflow pipeline on real Brazilian e-commerce data (Olist, ~100k orders, 2016–2018): loads raw CSVs into PostgreSQL, cleans and transforms them, and builds daily revenue and delivery performance tables, with data quality checks gating each run and a Metabase dashboard on top.",
+      "Airflow pipeline on real Brazilian e-commerce data (Olist, ~100k orders, 2016–2018): loads raw CSVs into PostgreSQL, cleans and transforms them, and builds revenue and delivery performance tables, with data quality checks gating each run and a Metabase dashboard on top.",
     tags: ["Apache Airflow", "PostgreSQL", "Docker", "Metabase"],
     link: "",
     placeholder: false,
@@ -135,7 +135,7 @@ export const projects: Project[] = [
   {
     title: "Airflow E-Commerce Medallion Architecture",
     description:
-      "Three-layer medallion design for e-commerce analytics: bronze keeps raw CSVs untouched, silver holds cleaned and typed tables, gold serves daily revenue and delivery performance, with quality checks gating every layer.",
+      "Three-layer medallion design for e-commerce analytics: bronze keeps raw CSVs untouched, silver holds cleaned and typed tables, gold serves revenue and delivery performance, with quality checks gating every layer.",
     tags: ["Apache Airflow", "PostgreSQL", "Medallion Architecture"],
     link: "",
     placeholder: false,
